@@ -1,8 +1,0 @@
-[site]
-base_url = "https://www.3gbizhi.com"
-begin = 5
-end = 11
-
-[database]
-database_url = "mysql://root:123!Mysqlpwd@124.222.172.51/imager"
-max_connection = 50
