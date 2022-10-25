@@ -1,14 +1,14 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub mod client;
+pub mod error;
+pub mod image;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub fn show_banner() {
+    println!(
+        r#"               .__    .___            
+  ____________ |__| __| _/___________ 
+ /  ___/\____ \|  |/ __ |/ __ \_  __ \
+ \___ \ |  |_> >  / /_/ \  ___/|  | \/
+/____  >|   __/|__\____ |\___  >__|   
+     \/ |__|           \/    \/       "#
+    );
 }

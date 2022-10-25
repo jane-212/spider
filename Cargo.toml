@@ -1,4 +1,5 @@
 [workspace]
 members = [
-    "spider-core"
+    "spider-core",
+    "spider-ggg"
 ]
