@@ -117,7 +117,7 @@ impl Spider {
             }
 
             pb.finish();
-            println!("");
+            println!();
             println!("done");
             println!("--------------------------------------");
         }
@@ -149,7 +149,7 @@ impl Spider {
     }
 
     fn next_href(&self, href: &str, count: usize) -> String {
-        format!("{}_{}.html", href[..href.len() - 5].to_string(), count)
+        format!("{}_{}.html", href[..href.len() - 5].to_owned(), count)
     }
 
     fn parse_page(&self, page: &str) -> Vec<String> {
@@ -164,9 +164,9 @@ impl Spider {
             .select(".imgw")
             .iter()
             .for_each(|imgw| {
-                imgw.attr("href").map(|href| {
+                if let Some(href) = imgw.attr("href") {
                     hrefs.push(href.to_string());
-                });
+                }
             });
 
         hrefs
@@ -190,7 +190,7 @@ impl Spider {
         format!(
             "{}/meinv/index_{}.html",
             self.config.site.base_url,
-            index.to_string()
+            index.to_owned()
         )
     }
 }
